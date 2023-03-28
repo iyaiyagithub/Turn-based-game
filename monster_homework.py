@@ -1,4 +1,5 @@
 import random
+import keyboard
 
 class Player:
     def __init__(self , name , hp ):
@@ -9,6 +10,7 @@ class Player:
         self.normal = normal
         self.magic = magic
         damage = normal or magic
+        # damage 변수값을 입력값의 조건에 따라서 normal  혹은 magic으로 바꾸고 싶다
         enemy.hp = max(enemy.hp - damage, 0)
 
       
@@ -34,12 +36,13 @@ P = Player( "플레이어", 100)
 M = Monster("몬스터" , 100)
 
 def attack_method():
+    # 선택값 받기
     Method = input()
-    if Method == 1 :
+    if  keyboard.is_pressed("1"):
         P.normal 
         #플레이어 어택과 몬스터 어택을 비교해서 큰 캐릭터가 공격하고 hp 깎인 거 출력
 
-    elif Method ==2 :
+    elif keyboard.is_pressed("2") :
         P.magic
         #플레이어 어택과 몬스터 어택을 비교해서 큰 캐릭터가 공격하고 hp 깎인 거 출력
     else:
